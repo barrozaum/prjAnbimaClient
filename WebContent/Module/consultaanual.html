@@ -1,0 +1,67 @@
+<div class="col-sm-8 col-sm-offset-2" style="padding-top: 100px">
+
+	<div class="col-md-6">
+	{{mensagem}}
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title"> Ano x Taxa Media</div>
+			</div>
+
+			<div class="panel-body">
+
+				<table ng-init="consultarMediaAnual()" class="table table-hover">
+					<thead>
+						<tr>
+							<th>Ano</th>
+							<th>Taxa Media</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="p in listagem">
+							<td>{{p.anoTaxa}}</td>
+							<td>{{p.valor}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">Quantidade de Registros:{{listagem.length}}</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6">
+	{{mensagemErrorConsultaAnual}}
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title"> Ano x Taxa</div>
+			</div>
+
+			<div class="panel-body">
+
+				<table ng-init="consultarAnual()" class="table table-hover">
+					<thead>
+						<tr>
+							<th>Ano</th>
+							<th>Taxa</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="p in listagemAnual">
+							<td>{{p.anoTaxa}}</td>
+							<td>{{p.valor}}</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">Quantidade de Registros:{{listagemAnual.length}}</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>

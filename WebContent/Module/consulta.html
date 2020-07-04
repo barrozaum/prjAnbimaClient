@@ -1,0 +1,55 @@
+<div class="col-sm-8 col-sm-offset-2" style="padding-top: 100px">
+
+	<div ng-if="mensagem != null"  class="alert alert-danger">
+	{{mensagem}}
+	</div>
+	
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="panel-title">Consulta Taxas Selic</div>
+		</div>
+		<div class="panel-body">
+			
+			<label>Ano:</label> 
+			<input type="text" name="preco" placeholder="Entre com o Ano" required
+				ng-model="modelConsulta.ano" class="form-control" required="required" />
+			
+			<br /><label>Mes: </label> 
+			<input type="text" name="nome"	placeholder="Entre com o Mes" ng-model="modelConsulta.mes"
+				class="form-control" required="required" /> 
+			
+			<br />
+			
+			<button ng-click="consultarTaxa()" class="btn btn-info">
+				<span class="glyphicon glyphicon-ok"></span> Consultar
+			</button>
+
+
+		</div>
+		<div class="panel-footer">
+			<div ng-if="listagem.length == 0">
+				Nenhum resultado encontrado !!
+			</div>
+			
+			<table ng-if="listagem.length > 0" class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Data </th>
+		        <th>Valor</th>		
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr ng-repeat="p in listagem">
+		        <td>{{p.data_referencia}}</td>
+		        <td>{{p.estimativa_taxa_selic}}</td>
+		      </tr>
+		    </tbody>
+		     <tfoot>
+		     <tr>
+		      <td colspan="4">Quantidade de Registros:{{listagem.length}}</td>
+		     </tr>
+		   </tfoot>
+		  </table>  	
+	</div>
+
+</div>
